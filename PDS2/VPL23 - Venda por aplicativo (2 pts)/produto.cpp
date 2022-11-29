@@ -2,10 +2,10 @@
 
 int Produto::getQtd() const {
   // TODO: Implemente este metodo
-  return 0;
+  return m_qtd;
 }
 
 float Produto::getValor() const {
   // TODO: Implemente este metodo
-  return 0;
+  return m_valor_unitario;
 }

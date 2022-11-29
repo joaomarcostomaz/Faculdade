@@ -35,6 +35,9 @@ class Pizza : public Produto {
  private:
   // TODO: Declare aqui as variaveis da classe. Note que as variaveis quantidade
   // (qtd) e valor ja sao herdadas de Produto
+  std::string sabor_;
+  int pedacos_;
+  bool borda_recheada_;
 };
 
 #endif

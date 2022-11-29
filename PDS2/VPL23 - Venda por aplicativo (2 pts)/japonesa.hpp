@@ -38,5 +38,9 @@ class Japonesa : public Produto {
  private:
   // TODO: Declare aqui as variaveis da classe. Note que as variaveis quantidade
   // (qtd) e valor ja sao herdadas de Produto
+  std::string combinado_;
+  int sushis_;
+  int temakis_;
+  int hots_;
 };
 #endif

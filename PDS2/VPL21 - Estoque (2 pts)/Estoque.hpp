@@ -1,6 +1,12 @@
 #ifndef _ESTOQUE_H
 #define _ESTOQUE_H
 
+#include <string>
+#include <iostream>
+#include <map>
+
+using namespace std;
+
 /**
  * \details  Este arquivo eh parte de um VPL de PDS II
  * \author   Fernando Magno Quintao Pereira
@@ -100,7 +106,10 @@ class Estoque {
      * inalterado.
      *
      * \param rhs O estoque da direita na operacao "lhs += rhs".
+     * 
      */
+    map<string,unsigned int> get_locker() const;
+
     Estoque& operator += (const Estoque& rhs);
 
     /**
@@ -149,6 +158,7 @@ class Estoque {
 
   private:
     // TODO: acrescente novas estruturas de dados e novos metodos aqui.
+    map<string,unsigned int> locker;
 };
 
 #endif
