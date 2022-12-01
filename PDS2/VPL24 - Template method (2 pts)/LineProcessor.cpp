@@ -54,45 +54,113 @@ void ContadorPopRural::processaLinha(const std::string &str) {
 
 bool ContadorNumNaturais::linhaValida(const std::string &str) const {
   // TODO: Implemente este metodo
-  return false;
+  bool valid = false;
+  for(char v : str){
+    int _valid = v - '\0';
+    if(_valid >= 48 && _valid <= 57){
+      valid = true;
+    }else if(_valid != 32){
+      return false;
+    }
+
+  }
+
+  
+  return valid;
 }
 
 void ContadorNumNaturais::processaLinha(const std::string &str) {
   // TODO: Implemente este metodo:
-  std::cout << "Imprime algo aqui!" << std::endl;
+
+  std::string number;
+  int count = 0;
+  for(char v : str){
+    int _valid = v - '\0';
+    if(_valid == 32){
+      if(number != ""){
+        count += std::stoi(number);
+      }
+      number = "";
+    }else{
+        number += v;
+    }
+  }
+  if(number != ""){
+    count += std::stoi(number);
+  }
+
+  std::cout << count << std::endl;
 }
 
 bool LeitorDeFutebol::linhaValida(const std::string &str) const {
   // TODO: Implemente este metodo
-  return false;
+  std::regex regularExpr("\\s*\\w+\\s*\\d+\\s*\\w+\\s*\\d+\\s*");
+  return std::regex_match(str, regularExpr);
 }
 
 void LeitorDeFutebol::processaLinha(const std::string &str) {
   // TODO: Implemente este metodo:
-  std::cout << "Imprime algo aqui!" << std::endl;
+  std::stringstream ss(str);
+  int number1,number2;
+  std::string team1,team2;
+
+  ss >> team1 >> number1 >> team2 >> number2;
+  if(number1 > number2){
+  std::cout << "Vencedor: " << team1 << std::endl;
+  }else if(number1 == number2){
+    std::cout << "Empate" << std::endl;
+  }else{
+    std::cout << "Vencedor: " << team2 << std::endl;
+  }
 }
 
 void ContadorDePalavras::processaLinha(const std::string &str) {
   // TODO: Implemente este metodo:
-  std::cout << "Imprime algo aqui!" << std::endl;
+  std::stringstream ss(str);
+  int count = 0;
+  std::string W_readed;
+
+  while(ss >> W_readed){
+    count++;
+  }
+  std::cout << count << std::endl;
 }
 
 bool InversorDeFrases::linhaValida(const std::string &str) const {
   // TODO: Implemente este metodo
-  return false;
+  std::stringstream ss(str);
+  std::string W_readed;
+  bool valid = true;
+
+  while(ss>>W_readed){
+    valid &= std::regex_match(W_readed, std::regex("\\b[a-zA-Z]+\\b"));
+  }
+  return valid;
 }
 
 void InversorDeFrases::processaLinha(const std::string &str) {
   // TODO: Implemente este metodo:
-  std::cout << "Imprime algo aqui!" << std::endl;
+  std::vector<std::string> v;
+  std::stringstream ss(str);
+  std::string W_readed;
+
+  while(ss>>W_readed){
+    v.push_back(W_readed);
+  }
+  reverse(v.begin(),v.end());
+
+  for(auto it = v.begin(); it != v.end(); it++){
+    std:: cout << *it << ((it + 1) == v.end() ? "" : " ");
+  }
+  std::cout << std::endl;
 }
 
 bool EscritorDeDatas::linhaValida(const std::string &str) const {
-  std::string dateFormat = "\\s*\\d\\d?/\\d\\d?/\\d{4}";
+  std::regex dateFormat("\\s*\\d\\d?/\\d\\d?/\\d{4}");
   // TODO: Implemente este metodo
   // Note que você pode usar uma expressao regular como:
   // "\\s*\\d\\d?/\\d\\d?/\\d{4}" para saber se a linha eh valida:
-  return false;
+  return std::regex_match(str, dateFormat);
 }
 
 void EscritorDeDatas::processaLinha(const std::string &str) {
@@ -100,5 +168,16 @@ void EscritorDeDatas::processaLinha(const std::string &str) {
   // Lembre-se que as iniciais dos meses sao:
   // "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out",
   // "Nov", e "Dez".
-  std::cout << "Imprime algo aqui!" << std::endl;
+
+  std::string conversor[] = {"Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out","Nov", "Dez"};
+  int count = 0;
+  for(count; str[count] != '/'; count++);
+    std::string mes;
+  for(++count; str[count]!= '/'; count++){
+    mes += str[count];
+  }
+
+
+
+  std::cout << conversor[std::stoi(mes) - 1] << std::endl;
 }

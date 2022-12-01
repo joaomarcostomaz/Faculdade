@@ -17,7 +17,7 @@ class LineProcessor {
     unsigned _numLinhasValidas; ///< O numero de linhas validas lidas
     // TODO: talvez voce queira declarar algum contador para contar o numero
     // de linhas lidas.
-
+    unsigned _Lreaded;
   public:
 
     /**
@@ -27,6 +27,7 @@ class LineProcessor {
     LineProcessor(): _in(std::cin), _numLinhasValidas(0) {
       // TODO: talvez voce queira inicializar algum contador para contar o
       // numero de linhas lidas.
+      _Lreaded = 0;
     }
 
     /**
@@ -70,6 +71,7 @@ class LineProcessor {
           _numLinhasValidas++;
           processaLinha(linha);
         }
+        _Lreaded++;
       }
     }
 
@@ -89,7 +91,7 @@ class LineProcessor {
       // TODO: Implemente este metodo. Provavelmente serah necessario modificar
       // a implementacao do metodo processaEntrada, para que voce possa contar
       // o numero de linhas lidas.
-      return 0;
+      return _Lreaded;
     }
 
 };
