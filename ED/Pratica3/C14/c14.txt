@@ -1,0 +1,409 @@
+A variável 'fact' não estava sendo inicializada, gerando um erro no código. Após a utilização das ferramentas, o erro foi encontrado e 
+concertado!
+
+Script started on 2023-04-09 17:50:56-03:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="197" LINES="17"]
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ exit clearvalgrind -v ./c13_concertado [13@gcc -g -o c13_concertado c13_concertado.c[C[13Pvalgrind -v ./c13_concertado[C[13@gcc -g -o c13_concertado c13_concertado.c[C[25Pvalgrind -v ./c13[10Pgdb c13cc -g -o c13 c13.c [6@cp c13.c c13_concertado[C[C[C[4Ptouch c13_concertado.cexit[Kclear[1Pexittouch c13_concertado.c[1P_concertado.c4_concertado.c[C
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ touch c14_concertado.cexit [Kclearvalgrind -v ./c13_concertado [13@gcc -g -o c13_concertado c13_concertado.c[C[13Pvalgrind -v ./c13_concertado[C[13@gcc -g -o c13_concertado c13_concertado.c[C[25Pvalgrind -v ./c13[10Pgdb c13cc -g -o c13 c13.c db c13[Kvalgrind -v ./c13[10Pgdb c13cc -g -o c13 c13.c [6@cp c13.c c13_concertado[C[C[C[4Ptouch c13_concertado.cexit[Ktouch c13_concertado.ccp c13.c c13_concertado.c [C[1P[1@4[C[1P[1@4
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ cp c14.c c14_concertado.c [4Ptouch c14_concertado.cexit [Kclearvalgrind -v ./c13_concertado [13@gcc -g -o c13_concertado c13_concertado.c[C[13Pvalgrind -v ./c13_concertado[C[13@gcc -g -o c13_concertado c13_concertado.c[C[25Pvalgrind -v ./c13gcc -g -o c13_concertado c13_concertado.c [25Pvalgrind -v ./c13[10Pgdb c13cc -g -o c13 c13.c [1P[1@4[1P[1@4
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ gdb c14
+[?2004l
+[35;1mGNU gdb (Ubuntu 12.1-3ubuntu2) 12.1[m
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32mc14[m...
+[?2004h(gdb) run
+[?2004l
+Starting program: [32m/home/joaomarcos/Área de Trabalho/ED/pa03/c14[m 
+[?2004h
+This GDB supports auto-downloading debuginfo from the following URLs:
+https://debuginfod.ubuntu.com 
+Enable debuginfod for this session? (y or [n]) y
+[?2004l
+Debuginfod has been enabled.
+To make this setting permanent, add 'set debuginfod enabled on' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
+Positive integer:5
+Factorial 5 = 0
+[Inferior 1 (process 38138) exited normally]
+[?2004h[?2004l
+[?2004h(gdb) exti[K[Kit
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ valgrind -v ./c14
+[?2004l
+==38313== Memcheck, a memory error detector
+==38313== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==38313== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==38313== Command: ./c14
+==38313== 
+--38313-- Valgrind options:
+--38313--    -v
+--38313-- Contents of /proc/version:
+--38313--   Linux version 5.19.0-38-generic (buildd@lcy02-amd64-030) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.2.0-3ubuntu1) 12.2.0, GNU ld (GNU Binutils for Ubuntu) 2.39) #39-Ubuntu SMP PREEMPT_DYNAMIC Fri Mar 17 17:33:16 UTC 2023
+--38313-- 
+--38313-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--38313-- Page sizes: currently 4096, max supported 4096
+--38313-- Valgrind library directory: /usr/libexec/valgrind
+--38313-- Reading syms from /home/joaomarcos/Área de Trabalho/ED/pa03/c14
+--38313-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--38313--   Considering /usr/lib/debug/.build-id/29/2e105c0bb3ee8e8f5b917f8af764373d206659.debug ..
+--38313--   .. build-id is valid
+--38313-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--38313--    object doesn't have a symbol table
+--38313--    object doesn't have a dynamic symbol table
+--38313-- Scheduler: using generic scheduler lock implementation.
+--38313-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==38313== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-38313-by-joaomarcos-on-???
+==38313== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-38313-by-joaomarcos-on-???
+==38313== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-38313-by-joaomarcos-on-???
+==38313== 
+==38313== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==38313== don't want to do, unless you know exactly what you're doing,
+==38313== or are doing some strange experiment):
+==38313==   /usr/bin/vgdb --pid=38313 ...command...
+==38313== 
+==38313== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==38313==   /path/to/gdb ./c14
+==38313== and then give GDB the following command
+==38313==   target remote | /usr/bin/vgdb --pid=38313
+==38313== --pid is optional if only one valgrind process is running
+==38313== 
+--38313-- REDIR: 0x4026dd0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--38313-- REDIR: 0x4025580 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--38313-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--38313--    object doesn't have a symbol table
+--38313-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--38313--    object doesn't have a symbol table
+==38313== WARNING: new redirection conflicts with existing -- ignoring it
+--38313--     old: 0x04026dd0 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--38313--     new: 0x04026dd0 (strlen              ) R-> (2007.0) 0x0484ae30 strlen
+--38313-- REDIR: 0x40257b0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484bcd0 (strcmp)
+--38313-- REDIR: 0x40249d0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x484f840 (mempcpy)
+--38313-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--38313--   Considering /usr/lib/debug/.build-id/d1/704d25fbbb72fa95d517b883131828c0883fe9.debug ..
+--38313--   .. build-id is valid
+==38313== WARNING: new redirection conflicts with existing -- ignoring it
+--38313--     old: 0x0490b1d0 (memalign            ) R-> (1011.0) 0x0484a080 memalign
+--38313--     new: 0x0490b1d0 (memalign            ) R-> (1017.0) 0x0484a050 aligned_alloc
+==38313== WARNING: new redirection conflicts with existing -- ignoring it
+--38313--     old: 0x0490b1d0 (memalign            ) R-> (1011.0) 0x0484a080 memalign
+--38313--     new: 0x0490b1d0 (memalign            ) R-> (1017.0) 0x0484a020 aligned_alloc
+--38313-- REDIR: 0x4912040 (libc.so.6:strnlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x49120d0 (libc.so.6:strpbrk) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x49101a0 (libc.so.6:strcmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4927660 (libc.so.6:wcsnlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490f2b0 (libc.so.6:memset) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4925d30 (libc.so.6:wcslen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490e790 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4925b40 (libc.so.6:wcschr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4910090 (libc.so.6:index) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4912100 (libc.so.6:rindex) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4925bd0 (libc.so.6:wcscmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490f500 (libc.so.6:stpncpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4926180 (libc.so.6:wmemchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4911ee0 (libc.so.6:strncmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490f570 (libc.so.6:strcasecmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x49113f0 (libc.so.6:strcspn) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4925c60 (libc.so.6:wcscpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4910010 (libc.so.6:strcat) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4911dd0 (libc.so.6:strncasecmp_l) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490e690 (libc.so.6:bcmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490f220 (libc.so.6:memrchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4910110 (libc.so.6:strchrnul) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4911370 (libc.so.6:strcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490f610 (libc.so.6:strcasecmp_l) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4911ca0 (libc.so.6:strlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4911f80 (libc.so.6:strncpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490f480 (libc.so.6:stpcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490efe0 (libc.so.6:memmove) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+==38313== Preferring higher priority redirection:
+--38313--     old: 0x049dbc00 (__memcpy_avx_unalign) R-> (2018.0) 0x0484cf90 __memcpy_avx_unaligned_erms
+--38313--     new: 0x049dbc00 (__memcpy_avx_unalign) R-> (2018.1) 0x0484e880 memmove
+--38313-- REDIR: 0x490e600 (libc.so.6:memchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x49122c0 (libc.so.6:strspn) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490f100 (libc.so.6:mempcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x4911d30 (libc.so.6:strncasecmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x490f3b0 (libc.so.6:rawmemchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38313-- REDIR: 0x49e1cf0 (libc.so.6:__strrchr_avx2) redirected to 0x484a810 (rindex)
+--38313-- REDIR: 0x49de8c0 (libc.so.6:__strchrnul_avx2) redirected to 0x484f330 (strchrnul)
+--38313-- REDIR: 0x490a660 (libc.so.6:malloc) redirected to 0x4844820 (malloc)
+Positive integer:5
+--38313-- REDIR: 0x49dbbc0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x484f440 (mempcpy)
+==38313== Conditional jump or move depends on uninitialised value(s)
+==38313==    at 0x48CB0D3: __vfprintf_internal (vfprintf-process-arg.c:58)
+==38313==    by 0x48BF7AE: printf (printf.c:33)
+==38313==    by 0x10920D: main (c14.c:12)
+==38313== 
+==38313== Use of uninitialised value of size 8
+==38313==    at 0x48BEA8B: _itoa_word (_itoa.c:177)
+==38313==    by 0x48CAE9A: __vfprintf_internal (vfprintf-process-arg.c:164)
+==38313==    by 0x48BF7AE: printf (printf.c:33)
+==38313==    by 0x10920D: main (c14.c:12)
+==38313== 
+==38313== Conditional jump or move depends on uninitialised value(s)
+==38313==    at 0x48BEA9C: _itoa_word (_itoa.c:177)
+==38313==    by 0x48CAE9A: __vfprintf_internal (vfprintf-process-arg.c:164)
+==38313==    by 0x48BF7AE: printf (printf.c:33)
+==38313==    by 0x10920D: main (c14.c:12)
+==38313== 
+==38313== Conditional jump or move depends on uninitialised value(s)
+==38313==    at 0x48CB38B: __vfprintf_internal (vfprintf-process-arg.c:174)
+==38313==    by 0x48BF7AE: printf (printf.c:33)
+==38313==    by 0x10920D: main (c14.c:12)
+==38313== 
+Factorial 5 = 0
+--38313-- REDIR: 0x490a970 (libc.so.6:free) redirected to 0x4847210 (free)
+==38313== 
+==38313== HEAP SUMMARY:
+==38313==     in use at exit: 0 bytes in 0 blocks
+==38313==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==38313== 
+==38313== All heap blocks were freed -- no leaks are possible
+==38313== 
+==38313== Use --track-origins=yes to see where uninitialised values come from
+==38313== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
+==38313== 
+==38313== 1 errors in context 1 of 4:
+==38313== Conditional jump or move depends on uninitialised value(s)
+==38313==    at 0x48CB38B: __vfprintf_internal (vfprintf-process-arg.c:174)
+==38313==    by 0x48BF7AE: printf (printf.c:33)
+==38313==    by 0x10920D: main (c14.c:12)
+==38313== 
+==38313== 
+==38313== 1 errors in context 2 of 4:
+==38313== Conditional jump or move depends on uninitialised value(s)
+==38313==    at 0x48BEA9C: _itoa_word (_itoa.c:177)
+==38313==    by 0x48CAE9A: __vfprintf_internal (vfprintf-process-arg.c:164)
+==38313==    by 0x48BF7AE: printf (printf.c:33)
+==38313==    by 0x10920D: main (c14.c:12)
+==38313== 
+==38313== 
+==38313== 1 errors in context 3 of 4:
+==38313== Use of uninitialised value of size 8
+==38313==    at 0x48BEA8B: _itoa_word (_itoa.c:177)
+==38313==    by 0x48CAE9A: __vfprintf_internal (vfprintf-process-arg.c:164)
+==38313==    by 0x48BF7AE: printf (printf.c:33)
+==38313==    by 0x10920D: main (c14.c:12)
+==38313== 
+==38313== 
+==38313== 1 errors in context 4 of 4:
+==38313== Conditional jump or move depends on uninitialised value(s)
+==38313==    at 0x48CB0D3: __vfprintf_internal (vfprintf-process-arg.c:58)
+==38313==    by 0x48BF7AE: printf (printf.c:33)
+==38313==    by 0x10920D: main (c14.c:12)
+==38313== 
+==38313== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ valgrind -v ./c14[10Pgdb c14cc -g -o c14 c14.c [6@cp c14.c c14_concertado[C[C[C[6Pgcc -g -o c14 c14[C[C[C[6@cp c14.c c14_concertado[C[C[C[4Ptouch c14_concertado.cexit [Kclearvalgrind -v ./c13_concertado [13@gcc -g -o c13_concertado c13_concertado.c[C[1P[1@4[1P[1@4
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ gcc -g -o c14_concertado c14_concertado.c [25Pvalgrind -v ./c14_concertado 
+[?2004l
+==38449== Memcheck, a memory error detector
+==38449== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==38449== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==38449== Command: ./c14_concertado
+==38449== 
+--38449-- Valgrind options:
+--38449--    -v
+--38449-- Contents of /proc/version:
+--38449--   Linux version 5.19.0-38-generic (buildd@lcy02-amd64-030) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.2.0-3ubuntu1) 12.2.0, GNU ld (GNU Binutils for Ubuntu) 2.39) #39-Ubuntu SMP PREEMPT_DYNAMIC Fri Mar 17 17:33:16 UTC 2023
+--38449-- 
+--38449-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--38449-- Page sizes: currently 4096, max supported 4096
+--38449-- Valgrind library directory: /usr/libexec/valgrind
+--38449-- Reading syms from /home/joaomarcos/Área de Trabalho/ED/pa03/c14_concertado
+--38449-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--38449--   Considering /usr/lib/debug/.build-id/29/2e105c0bb3ee8e8f5b917f8af764373d206659.debug ..
+--38449--   .. build-id is valid
+--38449-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--38449--    object doesn't have a symbol table
+--38449--    object doesn't have a dynamic symbol table
+--38449-- Scheduler: using generic scheduler lock implementation.
+--38449-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==38449== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-38449-by-joaomarcos-on-???
+==38449== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-38449-by-joaomarcos-on-???
+==38449== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-38449-by-joaomarcos-on-???
+==38449== 
+==38449== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==38449== don't want to do, unless you know exactly what you're doing,
+==38449== or are doing some strange experiment):
+==38449==   /usr/bin/vgdb --pid=38449 ...command...
+==38449== 
+==38449== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==38449==   /path/to/gdb ./c14_concertado
+==38449== and then give GDB the following command
+==38449==   target remote | /usr/bin/vgdb --pid=38449
+==38449== --pid is optional if only one valgrind process is running
+==38449== 
+--38449-- REDIR: 0x4026dd0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--38449-- REDIR: 0x4025580 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--38449-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--38449--    object doesn't have a symbol table
+--38449-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--38449--    object doesn't have a symbol table
+==38449== WARNING: new redirection conflicts with existing -- ignoring it
+--38449--     old: 0x04026dd0 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--38449--     new: 0x04026dd0 (strlen              ) R-> (2007.0) 0x0484ae30 strlen
+--38449-- REDIR: 0x40257b0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484bcd0 (strcmp)
+--38449-- REDIR: 0x40249d0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x484f840 (mempcpy)
+--38449-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--38449--   Considering /usr/lib/debug/.build-id/d1/704d25fbbb72fa95d517b883131828c0883fe9.debug ..
+--38449--   .. build-id is valid
+==38449== WARNING: new redirection conflicts with existing -- ignoring it
+--38449--     old: 0x0490b1d0 (memalign            ) R-> (1011.0) 0x0484a080 memalign
+--38449--     new: 0x0490b1d0 (memalign            ) R-> (1017.0) 0x0484a050 aligned_alloc
+==38449== WARNING: new redirection conflicts with existing -- ignoring it
+--38449--     old: 0x0490b1d0 (memalign            ) R-> (1011.0) 0x0484a080 memalign
+--38449--     new: 0x0490b1d0 (memalign            ) R-> (1017.0) 0x0484a020 aligned_alloc
+--38449-- REDIR: 0x4912040 (libc.so.6:strnlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x49120d0 (libc.so.6:strpbrk) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x49101a0 (libc.so.6:strcmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4927660 (libc.so.6:wcsnlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490f2b0 (libc.so.6:memset) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4925d30 (libc.so.6:wcslen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490e790 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4925b40 (libc.so.6:wcschr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4910090 (libc.so.6:index) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4912100 (libc.so.6:rindex) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4925bd0 (libc.so.6:wcscmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490f500 (libc.so.6:stpncpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4926180 (libc.so.6:wmemchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4911ee0 (libc.so.6:strncmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490f570 (libc.so.6:strcasecmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x49113f0 (libc.so.6:strcspn) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4925c60 (libc.so.6:wcscpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4910010 (libc.so.6:strcat) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4911dd0 (libc.so.6:strncasecmp_l) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490e690 (libc.so.6:bcmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490f220 (libc.so.6:memrchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4910110 (libc.so.6:strchrnul) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4911370 (libc.so.6:strcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490f610 (libc.so.6:strcasecmp_l) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4911ca0 (libc.so.6:strlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4911f80 (libc.so.6:strncpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490f480 (libc.so.6:stpcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490efe0 (libc.so.6:memmove) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+==38449== Preferring higher priority redirection:
+--38449--     old: 0x049dbc00 (__memcpy_avx_unalign) R-> (2018.0) 0x0484cf90 __memcpy_avx_unaligned_erms
+--38449--     new: 0x049dbc00 (__memcpy_avx_unalign) R-> (2018.1) 0x0484e880 memmove
+--38449-- REDIR: 0x490e600 (libc.so.6:memchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x49122c0 (libc.so.6:strspn) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490f100 (libc.so.6:mempcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x4911d30 (libc.so.6:strncasecmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x490f3b0 (libc.so.6:rawmemchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--38449-- REDIR: 0x49e1cf0 (libc.so.6:__strrchr_avx2) redirected to 0x484a810 (rindex)
+--38449-- REDIR: 0x49de8c0 (libc.so.6:__strchrnul_avx2) redirected to 0x484f330 (strchrnul)
+--38449-- REDIR: 0x490a660 (libc.so.6:malloc) redirected to 0x4844820 (malloc)
+Positive integer:5
+--38449-- REDIR: 0x49dbbc0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x484f440 (mempcpy)
+Factorial 5 = 120
+--38449-- REDIR: 0x490a970 (libc.so.6:free) redirected to 0x4847210 (free)
+==38449== 
+==38449== HEAP SUMMARY:
+==38449==     in use at exit: 0 bytes in 0 blocks
+==38449==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==38449== 
+==38449== All heap blocks were freed -- no leaks are possible
+==38449== 
+==38449== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ gdb c14
+[?2004l
+[35;1mGNU gdb (Ubuntu 12.1-3ubuntu2) 12.1[m
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32mc14[m...
+[?2004h(gdb) run
+[?2004l
+Starting program: [32m/home/joaomarcos/Área de Trabalho/ED/pa03/c14[m 
+[?2004h
+This GDB supports auto-downloading debuginfo from the following URLs:
+https://debuginfod.ubuntu.com 
+Enable debuginfod for this session? (y or [n]) 5
+[?2004l
+Please answer y or [n].
+[?2004h
+This GDB supports auto-downloading debuginfo from the following URLs:
+https://debuginfod.ubuntu.com 
+Enable debuginfod for this session? (y or [n]) y
+[?2004l
+Debuginfod has been enabled.
+To make this setting permanent, add 'set debuginfod enabled on' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
+Positive integer:5
+Factorial 5 = 0
+[Inferior 1 (process 38536) exited normally]
+[?2004h[?2004l
+[?2004h(gdb) exit
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ clear
+[?2004l
+[H[2J[3J[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ cleargdb c14valgrind -v ./c14_concertado gdb c14[K_concertado 
+[?2004l
+[35;1mGNU gdb (Ubuntu 12.1-3ubuntu2) 12.1[m
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32mc14_concertado[m...
+[?2004h(gdb) run
+[?2004l
+Starting program: [32m/home/joaomarcos/Área de Trabalho/ED/pa03/c14_concertado[m 
+[?2004h
+This GDB supports auto-downloading debuginfo from the following URLs:
+https://debuginfod.ubuntu.com 
+Enable debuginfod for this session? (y or [n]) y
+[?2004l
+Debuginfod has been enabled.
+To make this setting permanent, add 'set debuginfod enabled on' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
+Positive integer:5
+Factorial 5 = 120
+[Inferior 1 (process 38719) exited normally]
+[?2004h[?2004l
+[?2004h(gdb) eexit[K[K[K[Kxit
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ cla[Kear
+[?2004l
+[H[2J[3J[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ cleargdb c14_concertado clear[Kgdb c14valgrind -v ./c14_concertado gdb c14[K[2Pcleargdb c14_concertado clear[K[Kexit
+[?2004l
+exit
+
+Script done on 2023-04-09 17:56:27-03:00 [COMMAND_EXIT_CODE="0"]

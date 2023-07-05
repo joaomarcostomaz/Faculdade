@@ -1,0 +1,306 @@
+Utilizando o valgrind e o gdb podemos ver que o tamanho alocado não está correto e tambem não há o desalocamento da variavel x.
+Após utilizar free na variavel e alterar o tamanho de sua alocação o erro é corrigido.
+
+Script started on 2023-04-09 17:33:45-03:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="197" LINES="17"]
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ touch c9_concertado.c
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ cp c9.c c9_concertado.c 
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ cp c9.c c9_concertado.c [3Ptouch c9_concertado.cexit[Kclearvalgrind -v ./c8_concertado clear[Kvalgrind -v ./c8gcc -g -o c8_concertado c8_concertado.c [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P 9 , [1P . c [C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@9
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ gdb c9
+[?2004l
+[35;1mGNU gdb (Ubuntu 12.1-3ubuntu2) 12.1[m
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32mc9[m...
+[?2004h(gdb) run
+[?2004l
+Starting program: [32m/home/joaomarcos/Área de Trabalho/ED/pa03/c9[m 
+[?2004h
+This GDB supports auto-downloading debuginfo from the following URLs:
+https://debuginfod.ubuntu.com 
+Enable debuginfod for this session? (y or [n]) y
+[?2004l
+Debuginfod has been enabled.
+To make this setting permanent, add 'set debuginfod enabled on' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
+[Inferior 1 (process 34847) exited normally]
+[?2004h[?2004l
+[?2004h(gdb) ee
+[?2004l
+command indefinido: "ee". Tente "help".
+[?2004h(gdb) exit
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ gdb c9cc -g -o c9 c9.c [6@cp c9.c c9_concertado[C[C[C[3Ptouch c9_concertado.cexit[Kclearvalgrind -v ./c8_concertado [K[K[K[K[K[K[K[K[K[K[K[K[K9
+[?2004l
+==34948== Memcheck, a memory error detector
+==34948== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==34948== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==34948== Command: ./c9
+==34948== 
+--34948-- Valgrind options:
+--34948--    -v
+--34948-- Contents of /proc/version:
+--34948--   Linux version 5.19.0-38-generic (buildd@lcy02-amd64-030) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.2.0-3ubuntu1) 12.2.0, GNU ld (GNU Binutils for Ubuntu) 2.39) #39-Ubuntu SMP PREEMPT_DYNAMIC Fri Mar 17 17:33:16 UTC 2023
+--34948-- 
+--34948-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--34948-- Page sizes: currently 4096, max supported 4096
+--34948-- Valgrind library directory: /usr/libexec/valgrind
+--34948-- Reading syms from /home/joaomarcos/Área de Trabalho/ED/pa03/c9
+--34948-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--34948--   Considering /usr/lib/debug/.build-id/29/2e105c0bb3ee8e8f5b917f8af764373d206659.debug ..
+--34948--   .. build-id is valid
+--34948-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--34948--    object doesn't have a symbol table
+--34948--    object doesn't have a dynamic symbol table
+--34948-- Scheduler: using generic scheduler lock implementation.
+--34948-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==34948== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-34948-by-joaomarcos-on-???
+==34948== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-34948-by-joaomarcos-on-???
+==34948== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-34948-by-joaomarcos-on-???
+==34948== 
+==34948== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==34948== don't want to do, unless you know exactly what you're doing,
+==34948== or are doing some strange experiment):
+==34948==   /usr/bin/vgdb --pid=34948 ...command...
+==34948== 
+==34948== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==34948==   /path/to/gdb ./c9
+==34948== and then give GDB the following command
+==34948==   target remote | /usr/bin/vgdb --pid=34948
+==34948== --pid is optional if only one valgrind process is running
+==34948== 
+--34948-- REDIR: 0x4026dd0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--34948-- REDIR: 0x4025580 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--34948-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--34948--    object doesn't have a symbol table
+--34948-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--34948--    object doesn't have a symbol table
+==34948== WARNING: new redirection conflicts with existing -- ignoring it
+--34948--     old: 0x04026dd0 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--34948--     new: 0x04026dd0 (strlen              ) R-> (2007.0) 0x0484ae30 strlen
+--34948-- REDIR: 0x40257b0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484bcd0 (strcmp)
+--34948-- REDIR: 0x40249d0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x484f840 (mempcpy)
+--34948-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--34948--   Considering /usr/lib/debug/.build-id/d1/704d25fbbb72fa95d517b883131828c0883fe9.debug ..
+--34948--   .. build-id is valid
+==34948== WARNING: new redirection conflicts with existing -- ignoring it
+--34948--     old: 0x0490b1d0 (memalign            ) R-> (1011.0) 0x0484a080 memalign
+--34948--     new: 0x0490b1d0 (memalign            ) R-> (1017.0) 0x0484a050 aligned_alloc
+==34948== WARNING: new redirection conflicts with existing -- ignoring it
+--34948--     old: 0x0490b1d0 (memalign            ) R-> (1011.0) 0x0484a080 memalign
+--34948--     new: 0x0490b1d0 (memalign            ) R-> (1017.0) 0x0484a020 aligned_alloc
+--34948-- REDIR: 0x4912040 (libc.so.6:strnlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x49120d0 (libc.so.6:strpbrk) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x49101a0 (libc.so.6:strcmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4927660 (libc.so.6:wcsnlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490f2b0 (libc.so.6:memset) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4925d30 (libc.so.6:wcslen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490e790 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4925b40 (libc.so.6:wcschr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4910090 (libc.so.6:index) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4912100 (libc.so.6:rindex) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4925bd0 (libc.so.6:wcscmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490f500 (libc.so.6:stpncpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4926180 (libc.so.6:wmemchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4911ee0 (libc.so.6:strncmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490f570 (libc.so.6:strcasecmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x49113f0 (libc.so.6:strcspn) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4925c60 (libc.so.6:wcscpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4910010 (libc.so.6:strcat) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4911dd0 (libc.so.6:strncasecmp_l) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490e690 (libc.so.6:bcmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490f220 (libc.so.6:memrchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4910110 (libc.so.6:strchrnul) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4911370 (libc.so.6:strcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490f610 (libc.so.6:strcasecmp_l) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4911ca0 (libc.so.6:strlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4911f80 (libc.so.6:strncpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490f480 (libc.so.6:stpcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490efe0 (libc.so.6:memmove) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+==34948== Preferring higher priority redirection:
+--34948--     old: 0x049dbc00 (__memcpy_avx_unalign) R-> (2018.0) 0x0484cf90 __memcpy_avx_unaligned_erms
+--34948--     new: 0x049dbc00 (__memcpy_avx_unalign) R-> (2018.1) 0x0484e880 memmove
+--34948-- REDIR: 0x490e600 (libc.so.6:memchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x49122c0 (libc.so.6:strspn) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490f100 (libc.so.6:mempcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x4911d30 (libc.so.6:strncasecmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x490f3b0 (libc.so.6:rawmemchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--34948-- REDIR: 0x49e1cf0 (libc.so.6:__strrchr_avx2) redirected to 0x484a810 (rindex)
+--34948-- REDIR: 0x490a660 (libc.so.6:malloc) redirected to 0x4844820 (malloc)
+==34948== Invalid write of size 4
+==34948==    at 0x10916B: f (c9.c:6)
+==34948==    by 0x109180: main (c9.c:11)
+==34948==  Address 0x4a72068 is 0 bytes after a block of size 40 alloc'd
+==34948==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34948==    by 0x10915E: f (c9.c:5)
+==34948==    by 0x109180: main (c9.c:11)
+==34948== 
+--34948-- REDIR: 0x490a970 (libc.so.6:free) redirected to 0x4847210 (free)
+==34948== 
+==34948== HEAP SUMMARY:
+==34948==     in use at exit: 40 bytes in 1 blocks
+==34948==   total heap usage: 1 allocs, 0 frees, 40 bytes allocated
+==34948== 
+==34948== Searching for pointers to 1 not-freed blocks
+==34948== Checked 107,088 bytes
+==34948== 
+==34948== LEAK SUMMARY:
+==34948==    definitely lost: 40 bytes in 1 blocks
+==34948==    indirectly lost: 0 bytes in 0 blocks
+==34948==      possibly lost: 0 bytes in 0 blocks
+==34948==    still reachable: 0 bytes in 0 blocks
+==34948==         suppressed: 0 bytes in 0 blocks
+==34948== Rerun with --leak-check=full to see details of leaked memory
+==34948== 
+==34948== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==34948== 
+==34948== 1 errors in context 1 of 1:
+==34948== Invalid write of size 4
+==34948==    at 0x10916B: f (c9.c:6)
+==34948==    by 0x109180: main (c9.c:11)
+==34948==  Address 0x4a72068 is 0 bytes after a block of size 40 alloc'd
+==34948==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34948==    by 0x10915E: f (c9.c:5)
+==34948==    by 0x109180: main (c9.c:11)
+==34948== 
+==34948== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ valgrind -v ./c9[10Pgdb c9cc -g -o c9 c9.c [6@cp c9.c c9_concertado[C[C[C[6Pgcc -g -o c9 c9[C[C[C[1@_[1@c[1@o[1@j[1@n[1@c[1@e[1P[1P[1P[1P[1@n[1@c[1@e[1@r[1@t[1@a[1@d[1@o[C[C[C[1@_[1@c[1@o[1@n[9@certado.c[C[C[1P [1P 
+[?2004l
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ gcc -g -o c9_concertado c9_concertado.c [24Pvalgrind -v ./c9[10Pgdb c9valgrind -v ./c9gcc -g -o c9_concertado c9_concertado.c [24Pvalgrind -v ./c9_concertado 
+[?2004l
+==35182== Memcheck, a memory error detector
+==35182== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==35182== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==35182== Command: ./c9_concertado
+==35182== 
+--35182-- Valgrind options:
+--35182--    -v
+--35182-- Contents of /proc/version:
+--35182--   Linux version 5.19.0-38-generic (buildd@lcy02-amd64-030) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.2.0-3ubuntu1) 12.2.0, GNU ld (GNU Binutils for Ubuntu) 2.39) #39-Ubuntu SMP PREEMPT_DYNAMIC Fri Mar 17 17:33:16 UTC 2023
+--35182-- 
+--35182-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--35182-- Page sizes: currently 4096, max supported 4096
+--35182-- Valgrind library directory: /usr/libexec/valgrind
+--35182-- Reading syms from /home/joaomarcos/Área de Trabalho/ED/pa03/c9_concertado
+--35182-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--35182--   Considering /usr/lib/debug/.build-id/29/2e105c0bb3ee8e8f5b917f8af764373d206659.debug ..
+--35182--   .. build-id is valid
+--35182-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--35182--    object doesn't have a symbol table
+--35182--    object doesn't have a dynamic symbol table
+--35182-- Scheduler: using generic scheduler lock implementation.
+--35182-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==35182== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-35182-by-joaomarcos-on-???
+==35182== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-35182-by-joaomarcos-on-???
+==35182== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-35182-by-joaomarcos-on-???
+==35182== 
+==35182== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==35182== don't want to do, unless you know exactly what you're doing,
+==35182== or are doing some strange experiment):
+==35182==   /usr/bin/vgdb --pid=35182 ...command...
+==35182== 
+==35182== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==35182==   /path/to/gdb ./c9_concertado
+==35182== and then give GDB the following command
+==35182==   target remote | /usr/bin/vgdb --pid=35182
+==35182== --pid is optional if only one valgrind process is running
+==35182== 
+--35182-- REDIR: 0x4026dd0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--35182-- REDIR: 0x4025580 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--35182-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--35182--    object doesn't have a symbol table
+--35182-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--35182--    object doesn't have a symbol table
+==35182== WARNING: new redirection conflicts with existing -- ignoring it
+--35182--     old: 0x04026dd0 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--35182--     new: 0x04026dd0 (strlen              ) R-> (2007.0) 0x0484ae30 strlen
+--35182-- REDIR: 0x40257b0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484bcd0 (strcmp)
+--35182-- REDIR: 0x40249d0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x484f840 (mempcpy)
+--35182-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--35182--   Considering /usr/lib/debug/.build-id/d1/704d25fbbb72fa95d517b883131828c0883fe9.debug ..
+--35182--   .. build-id is valid
+==35182== WARNING: new redirection conflicts with existing -- ignoring it
+--35182--     old: 0x0490b1d0 (memalign            ) R-> (1011.0) 0x0484a080 memalign
+--35182--     new: 0x0490b1d0 (memalign            ) R-> (1017.0) 0x0484a050 aligned_alloc
+==35182== WARNING: new redirection conflicts with existing -- ignoring it
+--35182--     old: 0x0490b1d0 (memalign            ) R-> (1011.0) 0x0484a080 memalign
+--35182--     new: 0x0490b1d0 (memalign            ) R-> (1017.0) 0x0484a020 aligned_alloc
+--35182-- REDIR: 0x4912040 (libc.so.6:strnlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x49120d0 (libc.so.6:strpbrk) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x49101a0 (libc.so.6:strcmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4927660 (libc.so.6:wcsnlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490f2b0 (libc.so.6:memset) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4925d30 (libc.so.6:wcslen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490e790 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4925b40 (libc.so.6:wcschr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4910090 (libc.so.6:index) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4912100 (libc.so.6:rindex) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4925bd0 (libc.so.6:wcscmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490f500 (libc.so.6:stpncpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4926180 (libc.so.6:wmemchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4911ee0 (libc.so.6:strncmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490f570 (libc.so.6:strcasecmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x49113f0 (libc.so.6:strcspn) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4925c60 (libc.so.6:wcscpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4910010 (libc.so.6:strcat) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4911dd0 (libc.so.6:strncasecmp_l) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490e690 (libc.so.6:bcmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490f220 (libc.so.6:memrchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4910110 (libc.so.6:strchrnul) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4911370 (libc.so.6:strcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490f610 (libc.so.6:strcasecmp_l) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4911ca0 (libc.so.6:strlen) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4911f80 (libc.so.6:strncpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490f480 (libc.so.6:stpcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490efe0 (libc.so.6:memmove) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+==35182== Preferring higher priority redirection:
+--35182--     old: 0x049dbc00 (__memcpy_avx_unalign) R-> (2018.0) 0x0484cf90 __memcpy_avx_unaligned_erms
+--35182--     new: 0x049dbc00 (__memcpy_avx_unalign) R-> (2018.1) 0x0484e880 memmove
+--35182-- REDIR: 0x490e600 (libc.so.6:memchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x49122c0 (libc.so.6:strspn) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490f100 (libc.so.6:mempcpy) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x4911d30 (libc.so.6:strncasecmp) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x490f3b0 (libc.so.6:rawmemchr) redirected to 0x483b220 (_vgnU_ifunc_wrapper)
+--35182-- REDIR: 0x49e1cf0 (libc.so.6:__strrchr_avx2) redirected to 0x484a810 (rindex)
+--35182-- REDIR: 0x490a660 (libc.so.6:malloc) redirected to 0x4844820 (malloc)
+--35182-- REDIR: 0x490a970 (libc.so.6:free) redirected to 0x4847210 (free)
+==35182== 
+==35182== HEAP SUMMARY:
+==35182==     in use at exit: 0 bytes in 0 blocks
+==35182==   total heap usage: 1 allocs, 1 frees, 40 bytes allocated
+==35182== 
+==35182== All heap blocks were freed -- no leaks are possible
+==35182== 
+==35182== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ clear
+[?2004l
+[H[2J[3J[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ xit
+[?2004l
+Comando 'xit' não encontrado, você quis dizer:
+  comando 'xt' do snap xt (0+git.99c6ce0)
+  comando 'git' do deb git (1:2.37.2-1ubuntu1.4)
+  comando 'wit' do deb wit (3.01a-4)
+  comando 'xwit' do deb xwit (3.4-16)
+  comando 'xir' do deb libxir-utils (1.4-2ubuntu1)
+  comando 'vit' do deb vit (2.2.0-1)
+Veja 'snap info <snapname>' para versões adicionais.
+[?2004h]0;joaomarcos@joaomarcos-System-Product-Name: ~/Área de Trabalho/ED/pa03[01;32mjoaomarcos@joaomarcos-System-Product-Name[00m:[01;34m~/Área de Trabalho/ED/pa03[00m$ exit
+[?2004l
+exit
+
+Script done on 2023-04-09 17:37:30-03:00 [COMMAND_EXIT_CODE="127"]
